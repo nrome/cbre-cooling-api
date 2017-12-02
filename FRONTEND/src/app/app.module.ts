@@ -13,14 +13,16 @@ import { HttpModule } from '@angular/http';
 
 // custom components
 // every component created must also be registered in the declarations array
-import { DashboardComponent } from './dashboard/dashboard.component'
-import { TemperatureComponent } from './dashboard/temperature-component/temperature.component'
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { TemperatureComponent } from './dashboard/temperature-component/temperature.component';
+import { NavComponent } from './dashboard/navigation-component/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    TemperatureComponent
+    TemperatureComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule, HttpModule, BrowserAnimationsModule, MatButtonModule, MatCardModule, MatInputModule, MatSnackBarModule, MatToolbarModule,

@@ -7,7 +7,7 @@ import { Component } from '@angular/core'
         this pattern will cascade for subdirectories or child components of the dashboard
     */
     selector: 'dashboard',
-    template: 'this is the Dashboard component'
+    template: ``
 })
 
 export class DashboardComponent {
