@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NavComponent } from  './dashboard/navigation-component/nav.component';
+import { NavComponent } from './dashboard/navigation-component/nav.component';
+import { NewTemperatureComponent } from './dashboard/temperature-component/new-temperature.component';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { NavComponent } from  './dashboard/navigation-component/nav.component';
   // a backtick permits multiple line templates
   template: `
               <nav></nav>
-              <dashboard></dashboard><br>
+              <dashboard></dashboard> <!-- not being used -->
+              <newtemperature></newtemperature>
               <temperature></temperature>
             `,
   styleUrls: ['./app.component.css']

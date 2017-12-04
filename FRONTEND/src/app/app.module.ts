@@ -16,13 +16,15 @@ import { HttpModule } from '@angular/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TemperatureComponent } from './dashboard/temperature-component/temperature.component';
 import { NavComponent } from './dashboard/navigation-component/nav.component';
+import { NewTemperatureComponent } from './dashboard/temperature-component/new-temperature.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     TemperatureComponent,
-    NavComponent
+    NavComponent,
+    NewTemperatureComponent
   ],
   imports: [
     BrowserModule, HttpModule, BrowserAnimationsModule, MatButtonModule, MatCardModule, MatInputModule, MatSnackBarModule, MatToolbarModule,
