@@ -11,11 +11,14 @@ import { NewTemperatureComponent } from './dashboard/temperature-component/new-t
   template: `
               <nav></nav>
               <dashboard></dashboard> <!-- not being used -->
-              <newtemperature></newtemperature>
+              <newtemperature (onPosted)="onPosted($event)"></newtemperature>
               <temperature></temperature>
             `,
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'CBRE COOLING DASHBOARD';
+  onPosted(newtemp) {
+    console.log(newtemp);
+  }
 }
