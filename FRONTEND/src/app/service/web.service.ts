@@ -16,7 +16,7 @@ export class WebService {
     }
 
 
-    postTemps(newtemp) {
+    postTemp(newtemp) {
         // create observable with toPromise extension
         return this.http.post(this.BASE_URL + '/temps', newtemp).toPromise();
     }

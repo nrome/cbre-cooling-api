@@ -39,7 +39,7 @@ export class NewTemperatureComponent {
 
     // define post func for post behavior
     post() {
-        this.webService.postTemps(this.newtemp);
+        this.webService.postTemp(this.newtemp);
         this.onPosted.emit(this.newtemp);
     }
 

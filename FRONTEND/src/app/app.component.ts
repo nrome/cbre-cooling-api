@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavComponent } from './dashboard/navigation-component/nav.component';
+import { TemperatureComponent } from './dashboard/temperature-component/temperature.component';
 import { NewTemperatureComponent } from './dashboard/temperature-component/new-temperature.component';
 
 @Component({
   selector: 'app-root',
-  // default placeholder from Angular CLI application template
-  // templateUrl: './default.app.component.html',
   // a backtick permits multiple line templates
   template: `
               <nav></nav>
@@ -18,7 +17,11 @@ import { NewTemperatureComponent } from './dashboard/temperature-component/new-t
 })
 
 export class AppComponent {
+
+  // summon child component temperature.component
+  @ViewChild(TemperatureComponent) temps : TemperatureComponent;
+
   onPosted(newtemp) {
-    console.log(newtemp);
+    this.temps.temps.push(newtemp);
   }
 }
