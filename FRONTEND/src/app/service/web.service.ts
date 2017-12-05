@@ -1,6 +1,8 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
+import { MatSnackBar } from '@angular/material';
+import { close } from 'fs';
 
 @Injectable()
 export class WebService {
@@ -10,20 +12,32 @@ export class WebService {
 
     temps = [];
 
-    constructor(private http: Http) {
+    constructor(private http: Http, private sb : MatSnackBar) {
         this.getTemps();
     }
 
     async getTemps() {
-        // create observable with toPromise extension
-        let response = await this.http.get(this.BASE_URL + '/temps').toPromise();
-        this.temps = response.json();
+        try {
+            // create observable with toPromise extension
+            let response = await this.http.get(this.BASE_URL + '/temps').toPromise();
+            this.temps = response.json();
+        } catch (error) {
+            this.handleErrors("Unable to get temperatures");
+        }
     }
 
     async postTemp(newtemp) {
-        // create observable with toPromise extension
-        let response = await this.http.post(this.BASE_URL + '/temps', newtemp).toPromise();
-        this.temps.push(response.json());
+        try {
+            // create observable with toPromise extension
+            let response = await this.http.post(this.BASE_URL + '/temps', newtemp).toPromise();
+            this.temps.push(response.json());
+        } catch (error) {
+            this.handleErrors("Unable to post temperature");
+        }
     }
 
+    private handleErrors(error) {
+        console.error(error);
+        this.sb.open(error, 'close', {duration:4000});
+    }
 }
