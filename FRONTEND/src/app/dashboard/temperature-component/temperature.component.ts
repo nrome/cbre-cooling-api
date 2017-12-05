@@ -5,9 +5,9 @@ import { WebService } from '../../service/web.service';
     selector: 'temperature',
     template: `
                 <mat-card>
-                    <mat-card-title>Number of active Units: {{ temps.length }}</mat-card-title>
+                    <mat-card-title>Number of active Units: {{ webService.temps.length }}</mat-card-title>
                 </mat-card>
-                <div *ngFor="let temp of temps">
+                <div *ngFor="let temp of webService.temps">
                     <mat-card>
                         <mat-card-content>
                             Name: {{temp.name}}
@@ -28,7 +28,6 @@ export class TemperatureComponent {
                 {name: 'Unit B', actual: '72.4', min: '60', max: '90'},
                 {name: 'Unit C', actual: '77.8', min: '60', max: '90'}
             ];
-    */
 
     temps = [];
 
@@ -39,4 +38,6 @@ export class TemperatureComponent {
         // fill the empty array with loaded json object(s)
         this.temps = response.json();
     }
+    */
+
 }

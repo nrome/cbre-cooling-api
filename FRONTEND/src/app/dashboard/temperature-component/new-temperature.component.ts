@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { WebService } from '../../service/web.service';
 
 @Component({
@@ -24,9 +24,6 @@ import { WebService } from '../../service/web.service';
 
 export class NewTemperatureComponent {
 
-    // output for parent component listeners
-    @Output() onPosted = new EventEmitter();
-
     // create constructor for service
     constructor(private webService : WebService) {}
 
@@ -37,10 +34,8 @@ export class NewTemperatureComponent {
         max: '90'
     }
 
-    // define post func for post behavior
     post() {
         this.webService.postTemp(this.newtemp);
-        this.onPosted.emit(this.newtemp);
     }
 
 }

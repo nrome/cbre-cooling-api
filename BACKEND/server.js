@@ -6,7 +6,8 @@ var bodyParser = require('body-parser');
 var temps = [
     {name: 'Unit A', actual: '79.7', min: '60', max: '90'},
     {name: 'Unit B', actual: '72.4', min: '60', max: '90'},
-    {name: 'Unit C', actual: '77.8', min: '60', max: '90'}
+    {name: 'Unit C', actual: '77.8', min: '60', max: '90'},
+    {name: 'Unit D', actual: '71.1', min: '60', max: '90'}
 ];
 
 // use body-parser middleware
@@ -29,7 +30,8 @@ api.get('/temps', (req, res) => res.json(temps));
 api.post('/temps', (req, res) => {
     // console.log(req.body);
     temps.push(req.body); // trace: temps array > temperature.component.ts
-    res.sendStatus(200);
+    //res.sendStatus(200);
+    res.json(req.body);
 });
 
 app.use('/api', api);

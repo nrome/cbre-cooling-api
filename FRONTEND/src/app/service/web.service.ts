@@ -8,17 +8,22 @@ export class WebService {
     // consolidate re-usable url string for api calls
     BASE_URL = 'http://localhost:3000/api';
 
-    constructor(private http: Http) {}
+    temps = [];
 
-    getTemps() {
-        // create observable with toPromise extension
-        return this.http.get(this.BASE_URL + '/temps').toPromise();
+    constructor(private http: Http) {
+        this.getTemps();
     }
 
-
-    postTemp(newtemp) {
+    async getTemps() {
         // create observable with toPromise extension
-        return this.http.post(this.BASE_URL + '/temps', newtemp).toPromise();
+        let response = await this.http.get(this.BASE_URL + '/temps').toPromise();
+        this.temps = response.json();
+    }
+
+    async postTemp(newtemp) {
+        // create observable with toPromise extension
+        let response = await this.http.post(this.BASE_URL + '/temps', newtemp).toPromise();
+        this.temps.push(response.json());
     }
 
 }
