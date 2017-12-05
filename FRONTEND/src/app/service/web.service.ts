@@ -2,12 +2,12 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import { MatSnackBar } from '@angular/material';
-import { close } from 'fs';
+//import { close } from 'fs';
 
 @Injectable()
 export class WebService {
 
-    // consolidate re-usable url string for api calls
+    // cache url string for api calls
     BASE_URL = 'http://localhost:3000/api';
 
     temps = [];

@@ -1,15 +1,16 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
+import { TemperatureComponent } from './dashboard/temperature-component/temperature.component';
+import { NewTemperatureComponent } from './dashboard/temperature-component/new-temperature.component';
+import { DataVisualizationComponent } from './dashboard/data-visualization-component/data-visualization.component';
 
 @Component({
-    /*
-        we must add a selector for dashboard to be used
-        as an element in the app.component.ts (i.e. <dashboard></dashboard>)
-        this pattern will cascade for subdirectories or child components of the dashboard
-    */
-    selector: 'dashboard',
-    template: ``
+  selector: 'dashboard',
+  // a backtick permits multiple line templates
+  template: `
+              <newtemperature></newtemperature>
+              <temperature></temperature>
+              <datavisualization></datavisualization>
+            `,
 })
 
-export class DashboardComponent {
-    title = 'CBRE COOLING DASHBOARD';
-}
+export class DashboardComponent {}
