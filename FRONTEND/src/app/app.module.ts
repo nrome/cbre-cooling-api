@@ -19,10 +19,16 @@ import { NavComponent } from './dashboard/navigation-component/nav.component';
 import { NewTemperatureComponent } from './dashboard/temperature-component/new-temperature.component';
 import { DataVisualizationComponent } from './dashboard/data-visualization-component/data-visualization.component';
 
-var routes = [{
+var routes = [
+  {
   path: '',
   component: DashboardComponent
-}];
+},
+{
+  path: 'temperatures',
+  component: TemperatureComponent
+},
+];
 
 @NgModule({
   declarations: [

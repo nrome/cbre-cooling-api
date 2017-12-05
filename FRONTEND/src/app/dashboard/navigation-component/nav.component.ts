@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
     selector: 'nav',
     template: `
                 <mat-toolbar color="primary">
-                    Temperature Display
+                    <button mat-button routerLink="/">Dashboard</button>
+                    <button mat-button routerLink="/temperatures">Temperatures</button>
                 </mat-toolbar>
               `
 })
