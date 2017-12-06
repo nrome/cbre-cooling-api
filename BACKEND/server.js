@@ -4,10 +4,10 @@ var bodyParser = require('body-parser');
 
 // mock data structure for temperatures
 var temps = [
-    {name: 'Unit A', actual: '79.7', min: '60', max: '90'},
-    {name: 'Unit B', actual: '72.4', min: '60', max: '90'},
-    {name: 'Unit C', actual: '77.8', min: '60', max: '90'},
-    {name: 'Unit D', actual: '71.1', min: '60', max: '90'}
+    {name: 'Unit-A', actual: '79.7', min: '60', max: '90'},
+    {name: 'Unit-B', actual: '72.4', min: '60', max: '90'},
+    {name: 'Unit-C', actual: '77.8', min: '60', max: '90'},
+    {name: 'Unit-D', actual: '71.1', min: '60', max: '90'}
 ];
 
 // use body-parser middleware

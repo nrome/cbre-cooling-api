@@ -9,10 +9,8 @@ import { WebService } from '../../service/web.service';
                 </mat-card>
                 <div *ngFor="let temp of webService.temps">
                     <mat-card>
-                        <mat-card-content>
-                            Name: {{temp.name}}
-                            @ {{temp.actual}}&deg;F
-                        </mat-card-content>
+                        <mat-card-title [routerLink]="['/temperatures', temp.name]" style="cursor: pointer;"> {{temp.name}} </mat-card-title>
+                        <mat-card-content>@ {{temp.actual}}&deg;F</mat-card-content>
                     </mat-card>
                 </div>
             `

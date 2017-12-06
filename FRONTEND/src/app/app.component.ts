@@ -1,3 +1,4 @@
+// ROOT COMPONENT 
 import { Component } from '@angular/core';
 import { NavComponent } from './dashboard/navigation-component/nav.component';
 
