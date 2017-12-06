@@ -1,0 +1,50 @@
+<mat-card>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="reg-form">
+        <mat-form-field class="reg-form-full-width">
+            <input matInput placeholder="Company (disabled)" disabled value="CBRE User Registration">
+        </mat-form-field>
+        <table class="reg-form-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-input-container class="reg-form-full-width">
+                        <input matInput [ngClass]="{'error': isValid('firstname')}" placeholder="First name" formControlName="firstname">
+                    </mat-input-container>
+                </td>
+                <td>
+                    <mat-input-container class="reg-form-full-width">
+                        <input matInput [ngClass]="{'error': isValid('lastname')}" placeholder="Last Name" formControlName="lastname">
+                    </mat-input-container>
+                </td>
+            </tr>
+        </table>
+        <table class="reg-form-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-input-container class="reg-form-full-width">
+                        <input matInput [ngClass]="{'error': isValid('email')}" placeholder="Email" type="email" formControlName="email">
+                    </mat-input-container>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-input-container class="reg-form-full-width">
+                        <input matInput [ngClass]="{'error': isValid('password')}" placeholder="Password" type="password" formControlName="password">
+                    </mat-input-container>
+                </td>
+                <td>
+                    <mat-input-container class="reg-form-full-width">
+                        <input matInput [ngClass]="{'error': isValid('confirmpassword')}" placeholder="Confirm Password" type="password" formControlName="confirmpassword">
+                    </mat-input-container>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <span *ngIf="form.errors?.mismatchedFields">Passwords do not match!</span>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <button mat-raised-button color="primary">Register</button>
+    </form>
+</mat-card>

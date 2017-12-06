@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatInputModule, MatSnackBarModule, MatToolbarModule  } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 // custom components
@@ -18,6 +18,7 @@ import { TemperatureComponent } from './dashboard/temperature-component/temperat
 import { NavComponent } from './dashboard/navigation-component/nav.component';
 import { NewTemperatureComponent } from './dashboard/temperature-component/new-temperature.component';
 import { DataVisualizationComponent } from './dashboard/data-visualization-component/data-visualization.component';
+import { RegisterComponent } from './dashboard/registration-component/register.component';
 
 // set up navigation scheme with routes listing
 // pass individual parameters with /:name on the path
@@ -25,6 +26,7 @@ var routes = [
   { path: '', component: DashboardComponent},
   { path: 'temperatures', component: TemperatureComponent},
   { path: 'temperatures/:name', component: TemperatureComponent},
+  { path: 'register', component: RegisterComponent},
 ];
 
 @NgModule({
@@ -34,7 +36,8 @@ var routes = [
     TemperatureComponent,
     NavComponent,
     NewTemperatureComponent,
-    DataVisualizationComponent
+    DataVisualizationComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule, 
@@ -46,6 +49,7 @@ var routes = [
     MatSnackBarModule, 
     MatToolbarModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [WebService],

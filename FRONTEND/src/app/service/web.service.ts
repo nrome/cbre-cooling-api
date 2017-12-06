@@ -19,7 +19,7 @@ export class WebService {
 
     constructor(private http: Http, private sb : MatSnackBar) {
         // expects arguement - error in console
-        this.getTemps();
+        //this.getTemps();
     }
 
     getTemps(unit) {
