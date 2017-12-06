@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WebService } from '../../service/web.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'temperature',
@@ -17,6 +18,9 @@ import { WebService } from '../../service/web.service';
 })
 
 export class TemperatureComponent {
-    // create constructor for service
-    constructor(private webService : WebService) {}
+    // declare service and activated route in our constructor
+    constructor(private webService : WebService, private route: ActivatedRoute) {}
+    ngOnInit() {
+        console.log(this.route.snapshot.params.name);
+    }
 }

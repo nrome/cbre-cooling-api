@@ -26,6 +26,13 @@ var api = express.Router();
 // route for GET temperature data
 api.get('/temps', (req, res) => res.json(temps));
 
+// create node endpoint for unit selection and parameter authorization
+api.get('/temps/:unit', (req, res) => {
+    var unit = req.params.unit;
+    var result = temps.filter(temp => temp.name == unit);
+    res.json(result);
+});
+
 // route for POST temperature data 
 api.post('/temps', (req, res) => {
     // console.log(req.body);

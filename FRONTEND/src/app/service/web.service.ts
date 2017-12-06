@@ -13,13 +13,16 @@ export class WebService {
     temps = [];
 
     constructor(private http: Http, private sb : MatSnackBar) {
+        // getting expects arguement error in console
         this.getTemps();
     }
 
-    async getTemps() {
+    async getTemps(unit) {
         try {
+            // if unit is valid '/' in not 'null'
+            unit = (unit) ? '/' + unit : '';
             // create observable with toPromise extension
-            let response = await this.http.get(this.BASE_URL + '/temps').toPromise();
+            let response = await this.http.get(this.BASE_URL + '/temps' + unit).toPromise();
             this.temps = response.json();
         } catch (error) {
             this.handleErrors("Unable to get temperatures");
