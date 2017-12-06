@@ -1,6 +1,7 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
+import { Subject } from 'rxjs/Rx';
 import { MatSnackBar } from '@angular/material';
 //import { close } from 'fs';
 
@@ -10,30 +11,35 @@ export class WebService {
     // cache url string for api calls
     BASE_URL = 'http://localhost:3000/api';
 
-    temps = [];
+    private tempsStore = [];
+
+    private tempsSubject = new Subject();
+
+    temps = this.tempsSubject.asObservable();
 
     constructor(private http: Http, private sb : MatSnackBar) {
-        // getting expects arguement error in console
+        // expects arguement - error in console
         this.getTemps();
     }
 
-    async getTemps(unit) {
-        try {
-            // if unit is valid '/' in not 'null'
-            unit = (unit) ? '/' + unit : '';
-            // create observable with toPromise extension
-            let response = await this.http.get(this.BASE_URL + '/temps' + unit).toPromise();
-            this.temps = response.json();
-        } catch (error) {
+    getTemps(unit) {
+        unit = (unit) ? '/' + unit : '';
+        // create observable with toPromise extension
+        this.http.get(this.BASE_URL + '/temps' + unit).subscribe(response => {
+            this.tempsStore = response.json();
+            this.tempsSubject.next(this.tempsStore);
+        }, error => {
             this.handleErrors("Unable to get temperatures");
-        }
+        });
+
     }
 
     async postTemp(newtemp) {
         try {
             // create observable with toPromise extension
             let response = await this.http.post(this.BASE_URL + '/temps', newtemp).toPromise();
-            this.temps.push(response.json());
+            this.tempsStore.push(response.json());
+            this.tempsSubject.next(this.tempsStore);
         } catch (error) {
             this.handleErrors("Unable to post temperature");
         }
