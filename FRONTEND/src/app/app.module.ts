@@ -14,15 +14,19 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { WebService } from './service/web.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { TemperatureComponent } from './dashboard/temperature-component/temperature.component';
 import { NavComponent } from './dashboard/navigation-component/nav.component';
+
+import { TemperatureComponent } from './dashboard/temperature-component/temperature.component';
 import { NewTemperatureComponent } from './dashboard/temperature-component/new-temperature.component';
+
+import { DataVisualizationService } from './service/visualization.service';
 import { DataVisualizationComponent } from './dashboard/data-visualization-component/data-visualization.component';
+
 import { RegisterComponent } from './dashboard/registration-component/register.component';
 
 // set up navigation scheme with routes listing
 // pass individual parameters with /:name on the path
-var routes = [
+const routes = [
   { path: '', component: DashboardComponent},
   { path: 'temperatures', component: TemperatureComponent},
   { path: 'temperatures/:name', component: TemperatureComponent},
@@ -52,7 +56,7 @@ var routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [WebService],
+  providers: [WebService, DataVisualizationService],
   bootstrap: [AppComponent]
 })
 
